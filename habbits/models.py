@@ -31,7 +31,7 @@ class Habbit(models.Model):
     is_public = models.BooleanField(default=True)
 
     def __str__(self):
-        return f"Действие: {self.action} Место: {self.place}"
+        return f"ACTION: {self.action} PLACE: {self.place}"
 
     class Meta:
         verbose_name = 'Привычка'
