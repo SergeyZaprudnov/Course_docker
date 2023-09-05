@@ -6,8 +6,8 @@ app_name = "habbits"
 
 
 urlpatterns = [
-    path("habbits/", HabbitListView.as_view(), name="show_all_habbits"),
-    path("habbit/<int:pk>/", HabbitDetailView.as_view(), name="habbit_show"),
+    path("habbits/", HabbitListView.as_view(), name="habbits_list"),
+    path("habbit/<int:pk>/", HabbitDetailView.as_view(), name="habbit_detail"),
     path("habbit/create/", HabbitCreateView.as_view(), name="habbit_create"),
     path("habbit/update/<int:pk>/", HabbitUpdateView.as_view(), name="habbit_update"),
     path("habbit/delete/<int:pk>/", HabbitDeleteView.as_view(), name="habbit_delete"),
