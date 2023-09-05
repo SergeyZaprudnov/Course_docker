@@ -9,7 +9,14 @@ NOT_NULLABLE = {'null': False, 'blank': False}
 
 class Hobbit(models.Model):
     class Frequency(models.TextChoices):
-        pass
+        Daily = 'ЕЖЕДНЕВНО'
+        monday = 'ПОНЕДЕЛЬНИК'
+        tuesday = 'ВТОРНИК'
+        wednesday = 'СРЕДА'
+        thursday = 'ЧЕТВЕРГ'
+        friday = 'ПЯТНИЦА'
+        saturday = 'СУББОТА'
+        sunday = 'ВОСКРЕСЕНЬЕ'
 
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, **NULLABLE,
                               verbose_name="Владелец привычки")
