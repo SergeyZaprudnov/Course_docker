@@ -50,7 +50,7 @@ USER_APPS = [
     'drf_yasg',
     'django_celery_beat',
 
-    'habbit',
+    'habbits',
     'users',
 ]
 
@@ -143,7 +143,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = "users.Users"
+AUTH_USER_MODEL = 'users.Users'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
