@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView, UpdateAPIView, DestroyAPIView
 from rest_framework.permissions import IsAuthenticated
 from habbits.models import Habbit
 from habbits.pagination import DataPaginator
@@ -6,8 +6,7 @@ from habbits.serializers.habbit import HabbitSerializer
 from habbits.permissions import IsOwner
 
 
-
-class HabitListView(generics.ListAPIView):
+class HabbitListView(ListAPIView):
     queryset = Habbit.objects.all()
     serializer_class = HabbitSerializer
     permission_classes = [IsAuthenticated, IsOwner]
@@ -28,13 +27,13 @@ class HabitListView(generics.ListAPIView):
         return search_owners
 
 
-class HabitDetailView(generics.RetrieveAPIView):
+class HabbitDetailView(RetrieveAPIView):
     queryset = Habbit.objects.all()
     serializer_class = HabbitSerializer
     permission_classes = [IsAuthenticated, IsOwner]
 
 
-class HabitCreateView(generics.CreateAPIView):
+class HabbitCreateView(CreateAPIView):
     queryset = Habbit.objects.all()
     serializer_class = HabbitSerializer
     permission_classes = [IsAuthenticated, IsOwner]
@@ -45,19 +44,19 @@ class HabitCreateView(generics.CreateAPIView):
         new_habit.save()
 
 
-class HabitUpdateView(generics.UpdateAPIView):
+class HabbitUpdateView(UpdateAPIView):
     queryset = Habbit.objects.all()
     serializer_class = HabbitSerializer
     permission_classes = [IsAuthenticated, IsOwner]
 
 
-class HabitDeleteView(generics.DestroyAPIView):
+class HabbitDeleteView(DestroyAPIView):
     queryset = Habbit.objects.all()
     serializer_class = HabbitSerializer
     permission_classes = [IsAuthenticated, IsOwner]
 
 
-class ShareHabitListView(generics.ListAPIView):
+class ShareHabbitListView(ListAPIView):
     queryset = Habbit.objects.all()
     serializer_class = HabbitSerializer
 
