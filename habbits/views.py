@@ -2,7 +2,7 @@ from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from habbits.models import Habbit
 from habbits.pagination import DataPaginator
-from habbits.serializers.habit import HabbitSerializer
+from habbits.serializers.habbit import HabbitSerializer
 from habbits.permissions import IsOwner
 # from habits.services import check_habit_time
 

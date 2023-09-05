@@ -2,7 +2,7 @@ from rest_framework import serializers
 from habbits.models import Habbit
 
 
-class HabitSerializer(serializers.ModelSerializer):
+class HabbitSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         new_habbit = Habbit.objects.create(**validated_data)
