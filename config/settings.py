@@ -34,26 +34,21 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
-DJANGO_APPS = [
+INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
-
-USER_APPS = [
     'rest_framework',
-    'corsheaders',
-    'drf_yasg',
-    'django_celery_beat',
-
     'habbits',
     'users',
-]
+    'drf_yasg',
+    'corsheaders',
+    'django_celery_beat'
+    ]
 
-INSTALLED_APPS = DJANGO_APPS + USER_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
