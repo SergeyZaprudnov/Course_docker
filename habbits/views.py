@@ -4,7 +4,7 @@ from habbits.models import Habbit
 from habbits.pagination import DataPaginator
 from habbits.serializers.habbit import HabbitSerializer
 from habbits.permissions import IsOwner
-# from habits.services import check_habit_time
+
 
 
 class HabitListView(generics.ListAPIView):
