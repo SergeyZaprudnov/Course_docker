@@ -4,7 +4,7 @@ from django.db import models
 from habbits.models import NULLABLE, NOT_NULLABLE
 
 
-class User(AbstractUser):
+class Users(AbstractUser):
 
     username = None
     email = models.EmailField(unique=True, verbose_name='Эмайл пользователя')
