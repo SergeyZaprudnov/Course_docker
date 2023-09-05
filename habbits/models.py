@@ -9,14 +9,14 @@ NOT_NULLABLE = {'null': False, 'blank': False}
 
 class Habbit(models.Model):
     class Frequency(models.TextChoices):
-        Daily = 'ЕЖЕДНЕВНО'
-        monday = 'ПОНЕДЕЛЬНИК'
-        tuesday = 'ВТОРНИК'
-        wednesday = 'СРЕДА'
-        thursday = 'ЧЕТВЕРГ'
-        friday = 'ПЯТНИЦА'
-        saturday = 'СУББОТА'
-        sunday = 'ВОСКРЕСЕНЬЕ'
+        Daily = 'DAILY'
+        monday = 'MONDAY'
+        tuesday = 'TUESDAY'
+        wednesday = 'WEDNESDAY'
+        thursday = 'THURSDAY'
+        friday = 'FRIDAY'
+        saturday = 'SATURDAY'
+        sunday = 'SUNDAY'
 
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, **NULLABLE,
                               verbose_name="Владелец привычки")
