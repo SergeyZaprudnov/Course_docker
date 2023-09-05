@@ -7,7 +7,7 @@ NULLABLE = {'null': True, 'blank': True}
 NOT_NULLABLE = {'null': False, 'blank': False}
 
 
-class Hobbit(models.Model):
+class Habbit(models.Model):
     class Frequency(models.TextChoices):
         Daily = 'ЕЖЕДНЕВНО'
         monday = 'ПОНЕДЕЛЬНИК'
