@@ -1,5 +1,5 @@
 from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView, UpdateAPIView, DestroyAPIView
-from rest_framework.permissions import IsAuthenticated, BasePermission, SAFE_METHODS, AllowAny
+from rest_framework.permissions import IsAuthenticated, BasePermission, SAFE_METHODS
 from users.models import Users
 from users.serializers.serializer import UserSerializer, UserRegisterSerializer
 from rest_framework.response import Response
