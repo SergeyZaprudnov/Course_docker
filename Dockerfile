@@ -1,6 +1,6 @@
 FROM python
 
-WORKDIR /app/
+WORKDIR /app
 
 COPY requirements.txt /app/
 
