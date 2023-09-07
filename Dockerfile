@@ -1,9 +1,8 @@
 FROM python
 
-WORKDIR /app
+WORKDIR /Course_docker/
 
-COPY requirements.txt /app/
+COPY requirements.txt /Course_docker/
 
 RUN pip install -r requirements.txt
 
-COPY ..

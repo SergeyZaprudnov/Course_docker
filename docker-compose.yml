@@ -1,14 +1,14 @@
-version: "2"
+version: "3"
 services:
 
   db:
     image: postgres
     restart: always
-    container_name: db_app
+    container_name: db_Course_docker
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=habits
+      - POSTGRES_DB=habbit
     volumes:
       - ./data/db/:/var/lib/postgresql/data
     ports:
@@ -33,7 +33,7 @@ services:
       context: .
       dockerfile: ./Dockerfile
     image: app
-    container_name: app
+    container_name: Course_docker
     command: bash -c "
       python manage.py migrate
       && python manage.py prepare_users
@@ -47,13 +47,13 @@ services:
     ports:
       - "8000:8000"
     volumes:
-        - ./app/:/app/
+        - ./Course_docker/:/Course_docker/
 
   celery_worker:
     image: app
     restart: always
     container_name: celery_worker
-    env_file: /app/.env
+    env_file: /Course_docker/.env
     depends_on:
       db:
         condition: service_healthy
@@ -62,14 +62,14 @@ services:
       cache:
         condition: service_started
     volumes:
-      - ./app/:/app/
+      - ./Course_docker/:/Course_docker/
     command: celery -A config worker -l INFO
 
   celery_beat:
     image: app
     restart: always
     container_name: celery_beat
-    env_file: /app/.env
+    env_file: /Course_docker/.env
     depends_on:
       db:
         condition: service_healthy
@@ -78,5 +78,5 @@ services:
       cache:
         condition: service_started
     volumes:
-      - ./app/:/app/
+      - ./Course_docker/:/Course_docker/
     command: celery -A config beat -l info -S django
