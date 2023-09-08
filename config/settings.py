@@ -47,18 +47,18 @@ INSTALLED_APPS = [
     'drf_yasg',
     'corsheaders',
     'django_celery_beat'
-    ]
-
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -86,9 +86,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('BASE_NAME'),
-        'USER': os.getenv('BASE_USER'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'habbit',
+        'USER': 'postgres',
         'PASSWORD': os.getenv('BASE_PASSWORD'),
         'HOST': os.getenv('HOST'),
         'PORT': os.getenv('PORT'),
@@ -155,11 +155,11 @@ SIMPLE_JWT = {
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:8000',
-    ]
+]
 
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:8000',
-    ]
+]
 
 CORS_ALLOW_ALL_ORIGINS = False
 
