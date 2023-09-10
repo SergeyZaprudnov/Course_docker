@@ -4,14 +4,42 @@ services:
   db:
     image: postgres
     environment:
-      POSTGRES_PASSWORD: sixteen
+      POSTGRES_PASSWORD: mysecretpassword
       PGDATA: /var/lib/postgresql/data/pgdata
-
 
   app:
     build: .
-    depends_on:
-      - db
+    command: python manage.py runserver 0.0.0.0:8000
     ports:
       - '8000:8000'
-    command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - db
+  redis:
+    image: redis:7.0.2-alpine
+    container_name: redis_spa
+    command: redis-server --save 20 1 --loglevel warning
+    volumes:
+      - redis_data:/data
+    ports:
+      - '6380:6379'
+      - '9999:8001'
+
+  celery:
+    build: .
+    container_name: celery_spa
+    command: >
+      bash -c "celery -A config worker --beat --loglevel=info"
+    volumes:
+      - .:/docker_code
+      - ./.env.docker:/code/.env
+    links:
+      - redis
+    depends_on:
+      - app
+      - redis
+
+volumes:
+  postgres_data:
+  redis_data:
+  static:
+  media:

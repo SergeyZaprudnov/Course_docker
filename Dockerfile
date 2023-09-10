@@ -1,10 +1,9 @@
-FROM python
+FROM python:3
 
-WORKDIR /Course_docker
+WORKDIR /my_code
 
-COPY requirements.txt .
+COPY ./requirements.txt /my_code/
 
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 COPY . .
-
