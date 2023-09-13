@@ -89,9 +89,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'habbit',
         'USER': 'postgres',
-        'PASSWORD': os.getenv('BASE_PASSWORD'),
-        'HOST': os.getenv('HOST'),
-        'PORT': os.getenv('PORT'),
+        'PASSWORD': 'mysecretpassword',
+        'HOST': 'db',
     }
 }
 
