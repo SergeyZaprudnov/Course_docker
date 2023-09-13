@@ -3,9 +3,8 @@ version: '3'
 services:
   db:
     image: postgres:14-alpine3.17
-    container_name: db_spa
     environment:
-      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_PASSWORD: sixteen
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - postgres_data:/var/lib/postgresql/data
